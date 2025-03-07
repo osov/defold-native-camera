@@ -17,11 +17,10 @@ Defold Native Camera is a minimalistic camera module for Defold, designed to be 
 - Not change viewport. If you need black bars at viewport, you should manual set viewport size, and set camera screen size to match.
 - You need to make custom render script to use this camera.
 
+
+
 If you like the extension you can support me on patreon.
 It will help me make more items for defold.
-
-
----
 
 [![](https://c5.patreon.com/external/logo/become_a_patron_button.png)](https://www.patreon.com/d954mas)
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/d954mas)
