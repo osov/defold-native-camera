@@ -123,8 +123,9 @@ function NativeCamera:screen_to_world_ray(screenX, screenY) end
 
 ---@param screenX number
 ---@param screenY number
----@param result vector3
-function NativeCamera:screen_to_world_ray_to_vector3(screenX, screenY, result) end
+---@param near_point vector3
+---@param far_point vector3
+function NativeCamera:screen_to_world_ray_to_vector3(screenX, screenY, near_point, far_point) end
 
 ---@param screenX number
 ---@param screenY number
