@@ -1,0 +1,18 @@
+{
+    "files.associations": {
+        "*.gui_script": "lua",
+        "*.script": "lua",
+        "*.render_script": "lua",
+        "*.fp": "glsl",
+        "*.vp": "glsl",
+        "iosfwd": "cpp",
+        "sstream": "cpp",
+        "xlocale": "cpp",
+        "format": "cpp",
+        "xiosbase": "cpp",
+        "xutility": "cpp"
+    },
+    "Lua.workspace.library": [
+        "~\\AppData\\Roaming\\Code\\User\\globalStorage\\astronachos.defold"
+    ]
+}

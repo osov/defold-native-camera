@@ -1,0 +1,87 @@
+name: "main"
+instances {
+  id: "character"
+  prototype: "/main/character/character.go"
+  position {
+    x: -435.076
+    y: 177.0
+  }
+}
+collection_instances {
+  id: "cursor"
+  collection: "/main/cursor.collection"
+}
+scale_along_z: 0
+embedded_instances {
+  id: "main"
+  data: "components {\n"
+  "  id: \"script\"\n"
+  "  component: \"/main/main_example.script\"\n"
+  "}\n"
+  "components {\n"
+  "  id: \"screen_widget\"\n"
+  "  component: \"/main/GUI_example.gui\"\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"label\"\n"
+  "  type: \"label\"\n"
+  "  data: \"size {\\n"
+  "  x: 128.0\\n"
+  "  y: 32.0\\n"
+  "}\\n"
+  "text: \\\"Mouse wheel: zoom, Middle mouse: pan\\\"\\n"
+  "font: \\\"/builtins/fonts/default.font\\\"\\n"
+  "material: \\\"/builtins/fonts/label-df.material\\\"\\n"
+  "\"\n"
+  "  position {\n"
+  "    y: -181.647\n"
+  "  }\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"grid\"\n"
+  "  type: \"sprite\"\n"
+  "  data: \"default_animation: \\\"1920x1080_grid\\\"\\n"
+  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
+  "blend_mode: BLEND_MODE_ADD\\n"
+  "textures {\\n"
+  "  sampler: \\\"texture_sampler\\\"\\n"
+  "  texture: \\\"/main/images/grid.atlas\\\"\\n"
+  "}\\n"
+  "\"\n"
+  "  position {\n"
+  "    z: -1.0\n"
+  "  }\n"
+  "}\n"
+  ""
+}
+embedded_instances {
+  id: "model"
+  data: "embedded_components {\n"
+  "  id: \"model\"\n"
+  "  type: \"model\"\n"
+  "  data: \"mesh: \\\"/main/voxel house_3.dae\\\"\\n"
+  "name: \\\"unnamed\\\"\\n"
+  "materials {\\n"
+  "  name: \\\"default\\\"\\n"
+  "  material: \\\"/main/materials/model.material\\\"\\n"
+  "  textures {\\n"
+  "    sampler: \\\"tex0\\\"\\n"
+  "    texture: \\\"/main/images/Voxel House.png\\\"\\n"
+  "  }\\n"
+  "}\\n"
+  "\"\n"
+  "  rotation {\n"
+  "    y: 1.0\n"
+  "    w: 6.123234E-17\n"
+  "  }\n"
+  "}\n"
+  ""
+  position {
+    y: -125.0
+  }
+  scale3 {
+    x: 15.0
+    y: 15.0
+    z: 15.0
+  }
+}

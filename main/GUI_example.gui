@@ -1,0 +1,219 @@
+script: "/main/GUI_example.gui_script"
+fonts {
+  name: "system_font"
+  font: "/builtins/fonts/default.font"
+}
+nodes {
+  position {
+    x: 410.0
+    y: 5.0
+  }
+  size {
+    x: 550.0
+    y: 135.0
+  }
+  color {
+    x: 0.5019608
+    y: 0.5019608
+    z: 0.5019608
+  }
+  type: TYPE_BOX
+  id: "box"
+  pivot: PIVOT_SW
+  inherit_alpha: true
+  alpha: 0.7
+}
+nodes {
+  position {
+    x: 4.0
+    y: 119.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  type: TYPE_TEXT
+  text: "Press 1, 2 to switch cameras."
+  font: "system_font"
+  id: "text2"
+  pivot: PIVOT_W
+  outline {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  shadow {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  parent: "box"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 4.0
+    y: 94.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  type: TYPE_TEXT
+  text: "Camera 1: Orthographic, fixed aspect ratio, following Defold logo. "
+  font: "system_font"
+  id: "text21"
+  pivot: PIVOT_W
+  outline {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  shadow {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  parent: "box"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 46.0
+    y: 74.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  type: TYPE_TEXT
+  text: "Move logo with arrow keys. "
+  font: "system_font"
+  id: "text214"
+  pivot: PIVOT_W
+  outline {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  shadow {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  parent: "box"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 4.0
+    y: 54.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  type: TYPE_TEXT
+  text: "Camera 2: Perspective. 60-degree FOV."
+  font: "system_font"
+  id: "text211"
+  pivot: PIVOT_W
+  outline {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  shadow {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  parent: "box"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: -582.0
+    y: 271.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  type: TYPE_BOX
+  id: "node"
+  alpha: 0.1
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    y: 125.0
+  }
+  size {
+    x: 175.0
+    y: 100.0
+  }
+  type: TYPE_TEXT
+  text: "Screenspace GUI text above a world space game object"
+  font: "system_font"
+  id: "text"
+  outline {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  shadow {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  line_break: true
+  parent: "node"
+}
+nodes {
+  position {
+    y: -125.0
+  }
+  size {
+    x: 175.0
+    y: 100.0
+  }
+  type: TYPE_TEXT
+  text: "move with arrow keys"
+  font: "system_font"
+  id: "text1"
+  outline {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  shadow {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+  line_break: true
+  parent: "node"
+}
+nodes {
+  position {
+    x: 1275.0
+    y: 595.0
+  }
+  size {
+    x: 50.0
+    y: 400.0
+  }
+  color {
+    x: 0.5019608
+    y: 0.5019608
+    z: 0.5019608
+  }
+  type: TYPE_BOX
+  id: "box2"
+  pivot: PIVOT_NE
+  inherit_alpha: true
+  alpha: 0.7
+}
+material: "/builtins/materials/gui.material"
+adjust_reference: ADJUST_REFERENCE_PARENT
