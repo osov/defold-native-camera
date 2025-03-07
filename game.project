@@ -22,5 +22,5 @@ scale = 0.02
 shared_state = 1
 
 [library]
-include_dirs = rendercam
+include_dirs = natice_camera
 
