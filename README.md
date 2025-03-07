@@ -35,7 +35,6 @@ Install NativeCamera in your project by adding it as a [library dependency](http
 
 ```
 https://github.com/d954mas/defold-native-camera/archive/1.0.0.zip
-
 ```
 
 Then open the "Project" menu of the editor and click "Fetch Libraries". You should see the "native_camera" folder appear in your assets panel after a few moments.
