@@ -20,6 +20,9 @@ Defold Native Camera is a minimalistic camera module for Defold, designed to be 
 If you like the extension you can support me on patreon.
 It will help me make more items for defold.
 
+
+---
+
 [![](https://c5.patreon.com/external/logo/become_a_patron_button.png)](https://www.patreon.com/d954mas)
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/d954mas)
 
