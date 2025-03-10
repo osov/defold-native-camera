@@ -21,8 +21,8 @@ class Camera {
 	CameraOrthoScaleMode orthoScaleMode;
 	float viewAreaWidth;
 	float viewAreaHeight;
-	float anchorX;
-	float anchorY;
+	int anchorX;
+	int anchorY;
 
 	float screenWidth;
 	float screenHeight;
