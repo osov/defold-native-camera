@@ -61,6 +61,14 @@ void Camera::setScreenSize(float screenWidth, float screenHeight) {
     dirtyProj = true;
 }
 
+void Camera::setAnchor(float x, float y) {
+    this->anchorX = x;
+    this->anchorY = y;
+    dirtyProj = true;
+}
+
+
+
 void Camera::setFov(float fov) {
     this->fov = fov;
     dirtyProj = true;

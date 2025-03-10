@@ -52,6 +52,13 @@ static int LuaCameraSetScreenSize(lua_State *L) {
     return 0;
 }
 
+static int LuaCameraSetAnchor(lua_State *L) {
+    check_arg_count(L, 3);
+    NativeCamera::Camera *userdata = CameraCheck(L, 1);
+    userdata->setAnchor(luaL_checknumber(L, 2), luaL_checknumber(L, 3));
+    return 0;
+}
+
 static int LuaCameraSetFov(lua_State *L) {
     check_arg_count(L, 2);
     NativeCamera::Camera *userdata = CameraCheck(L, 1);
@@ -342,6 +349,7 @@ static const luaL_Reg LuaCameraMethods[] = {
     {"set_otrho_scale_mode", LuaCameraSetOrthoScaleMode},
     {"set_view_area", LuaCameraSetViewArea},
     {"set_screen_size", LuaCameraSetScreenSize},
+    {"set_anchor", LuaCameraSetAnchor},
     {"set_fov", LuaCameraSetFov},
     {"set_near_z", LuaCameraSetNearZ},
     {"set_far_z", LuaCameraSetFarZ},
@@ -364,7 +372,7 @@ static const luaL_Reg LuaCameraMethods[] = {
     {"get_fov", LuaCameraGetFov},
     {"get_near_z", LuaCameraGetNearZ},
     {"get_far_z", LuaCameraGetFarZ},
-    {"get_ortho_scale", LuaCameraGetOrthoScale},
+	{"get_ortho_scale", LuaCameraGetOrthoScale},
     {"screen_to_world_ray", LuaCameraScreenToWorldRay},
     {"screen_to_world_ray_to_vector3", LuaCameraScreenToWorldRayToVector3},
     {"screen_to_world_2d", LuaCameraScreenToWorld2D},

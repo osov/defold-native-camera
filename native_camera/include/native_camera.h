@@ -52,6 +52,7 @@ class Camera {
 	void setFov(float fov);
 	void setNearZ(float nearZ);
 	void setFarZ(float farZ);
+	void setAnchor(float x, float y);
 
 	dmVMath::Matrix4 getView();
 	dmVMath::Matrix4 getProj();
