@@ -195,6 +195,14 @@ static int LuaCameraGetFarZ(lua_State *L) {
     return 1;
 }
 
+
+static int LuaCameraGetOrthoScale(lua_State *L) {
+    check_arg_count(L, 1);
+    NativeCamera::Camera *userdata = CameraCheck(L, 1);
+    lua_pushnumber(L, userdata->orthoScale);
+    return 1;
+}
+
 static int LuaCameraGetPosition(lua_State *L) {
     check_arg_count(L, 1);
     NativeCamera::Camera *userdata = CameraCheck(L, 1);
@@ -356,6 +364,7 @@ static const luaL_Reg LuaCameraMethods[] = {
     {"get_fov", LuaCameraGetFov},
     {"get_near_z", LuaCameraGetNearZ},
     {"get_far_z", LuaCameraGetFarZ},
+    {"get_ortho_scale", LuaCameraGetOrthoScale},
     {"screen_to_world_ray", LuaCameraScreenToWorldRay},
     {"screen_to_world_ray_to_vector3", LuaCameraScreenToWorldRayToVector3},
     {"screen_to_world_2d", LuaCameraScreenToWorld2D},
