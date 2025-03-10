@@ -444,7 +444,7 @@ static int LuaCreateCamera(lua_State *L) {
 }
 
 static const luaL_Reg Module_methods[] = {
-    {"new", LuaCreateCamera},
+    {"create", LuaCreateCamera},
     {0, 0}
 };
 
