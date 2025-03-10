@@ -369,10 +369,6 @@ static const luaL_Reg LuaCameraMethods[] = {
 
 static void RegisterCameraScaleModeEnum(lua_State *L) {
     lua_newtable(L);
-    lua_pushinteger(L, NativeCamera::CameraOrthoScaleMode::EXPANDVIEW);
-    lua_setfield(L, -2, "EXPANDVIEW");
-    lua_pushinteger(L, NativeCamera::CameraOrthoScaleMode::FIXEDAREA);
-    lua_setfield(L, -2, "FIXEDAREA");
     lua_pushinteger(L, NativeCamera::CameraOrthoScaleMode::FIXEDWIDTH);
     lua_setfield(L, -2, "FIXEDWIDTH");
     lua_pushinteger(L, NativeCamera::CameraOrthoScaleMode::FIXEDHEIGHT);

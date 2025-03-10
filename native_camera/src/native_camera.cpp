@@ -7,9 +7,11 @@ namespace NativeCamera {
 Camera::Camera()
     : orthographic(true),
       orthoScale(1.0f),
-      orthoScaleMode(CameraOrthoScaleMode::FIXEDAREA),
+      orthoScaleMode(CameraOrthoScaleMode::FIXEDWIDTH),
       viewAreaWidth(1),
       viewAreaHeight(1),
+      anchorX(-1),
+      anchorY(1),
 
       dirtyView(true),
       dirtyProj(true),
@@ -96,30 +98,47 @@ dmVMath::Matrix4 Camera::getView() {
 dmVMath::Matrix4 Camera::getProj() {
     if (dirtyProj) {
         if (orthographic) {
-            // calculate viewArea based on screen size and scaleMode
-            float viewAreaCalculatedWidth = viewAreaWidth;
-            float viewAreaCalculatedHeight = viewAreaHeight;
-
             switch (orthoScaleMode) {
-            case CameraOrthoScaleMode::EXPANDVIEW: {
-                viewAreaCalculatedWidth = screenWidth;
-                viewAreaCalculatedHeight = screenHeight;
-                break;
-            }
-            case CameraOrthoScaleMode::FIXEDAREA: {
-                float minScale = fmax(viewAreaWidth / screenWidth, viewAreaHeight / screenHeight);
-                viewAreaCalculatedWidth = screenWidth * minScale;
-                viewAreaCalculatedHeight = screenHeight * minScale;
-                break;
-            }
             case CameraOrthoScaleMode::FIXEDWIDTH: {
-                viewAreaCalculatedWidth = viewAreaWidth;
-                viewAreaCalculatedHeight = viewAreaWidth / screenAspectRatio;
+            	float dw = viewAreaWidth;
+            	float dh = viewAreaHeight;
+
+            	float w = dw / orthoScale;
+            	float h = screenHeight / screenWidth * w;
+
+            	float left = -w / 2;
+        		float right = w / 2;
+        		float bottom = -h / 2;
+        		float top = h / 2;
+
+        		float left_x = (dw - w) / 2;
+        		float top_y = (dh - h) / 2;
+
+        		 if (anchorY == 1) {
+        		    bottom = -h;
+        		    top = 0;
+        		}
+
+        		if (anchorY == -1) {
+        		    bottom = 0;
+        		    top = h;
+        		}
+
+        		if (anchorX == -1) {
+        		    left = left_x;
+        		    right = w + left_x;
+        		}
+
+        		if (anchorX == 1) {
+        		    left = -w;
+        		    right = 0;
+        		}
+
+                proj = dmVMath::Matrix4::orthographic(left, right, bottom, top, nearZ, farZ);
                 break;
             }
             case CameraOrthoScaleMode::FIXEDHEIGHT: {
-                viewAreaCalculatedWidth = viewAreaHeight * screenAspectRatio;
-                viewAreaCalculatedHeight = viewAreaHeight;
+                assert(false);
                 break;
             }
             default: {
@@ -128,9 +147,7 @@ dmVMath::Matrix4 Camera::getProj() {
             }
             }
 
-            float x = viewAreaCalculatedWidth * 0.5f * orthoScale;
-            float y = viewAreaCalculatedHeight * 0.5f * orthoScale;
-            proj = dmVMath::Matrix4::orthographic(-x, x, -y, y, nearZ, farZ);
+
         } else {
             proj = dmVMath::Matrix4::perspective(fov, screenAspectRatio, nearZ, farZ);
         }
@@ -208,13 +225,13 @@ void Camera::worldToScreen(dmVMath::Vector3 worldPos, float *outX, float *outY){
 // Implementation of the updated toString method
 void Camera::toString(char *buffer, size_t size) {
     snprintf(buffer, size,
-             "NativeCamera[%p]{ orthographic: %d orthoScale: %.2f scaleMode: %d "
+             "NativeCamera[%p]{ orthographic: %d orthoScale: %.2f scaleMode: %d anchorX: %d anchorY: %d "
              "viewArea: (%.2f, %.2f) screenSize: (%.2f, %.2f) "
              "screenAspectRatio: %.2f position: (%.2f, %.2f, %.2f) "
              "rotation: (%.2f, %.2f, %.2f, %.2f) "
              "fov: %.2f nearZ: %.2f farZ: %.2f dirtyView: %d dirtyProj: %d }",
              this,
-             orthographic, orthoScale, orthoScaleMode,
+             orthographic, orthoScale, orthoScaleMode, anchorX, anchorY,
              viewAreaWidth, viewAreaHeight,
              screenWidth, screenHeight,
              screenAspectRatio,

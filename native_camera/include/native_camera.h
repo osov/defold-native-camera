@@ -7,8 +7,6 @@
 namespace NativeCamera {
 
 enum CameraOrthoScaleMode {
-	EXPANDVIEW,
-	FIXEDAREA,
 	FIXEDWIDTH,
 	FIXEDHEIGHT
 };
@@ -23,6 +21,8 @@ class Camera {
 	CameraOrthoScaleMode orthoScaleMode;
 	float viewAreaWidth;
 	float viewAreaHeight;
+	float anchorX;
+	float anchorY;
 
 	float screenWidth;
 	float screenHeight;
