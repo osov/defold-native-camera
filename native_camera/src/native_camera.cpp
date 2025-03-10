@@ -218,8 +218,8 @@ void Camera::worldToScreen(dmVMath::Vector3 worldPos, float *outX, float *outY){
     dmVMath::Vector4 pv = dmVMath::Vector4(worldPos.getX(), worldPos.getY(), worldPos.getZ(), 1);
     pv = m * pv;
     pv = pv * (1/pv.getW());
-    *outX = pv.getX() / 2 * viewAreaWidth;
-    *outY = pv.getY() / 2 * viewAreaHeight;
+    *outX = pv.getX() / 2 * viewAreaWidth + 0.5 * viewAreaWidth;
+    *outY = pv.getY() / 2 * viewAreaHeight + 0.5 * viewAreaHeight;
 }
 
 // Implementation of the updated toString method
